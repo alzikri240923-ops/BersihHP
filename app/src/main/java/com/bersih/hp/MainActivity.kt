@@ -174,7 +174,7 @@ class MainActivity : Activity() {
     private fun refreshStorage() {
         val st = StatFs(Environment.getDataDirectory().path)
         val total = st.blockCountLong * st.blockSizeLong
-        val free = st.availableBytesLong
+        val free = st.availableBytes
         val used = total - free
         storageText.text = "Terpakai ${fmt(used)} dari ${fmt(total)}\nKosong ${fmt(free)}"
         storageBar.progress = if (total > 0) (used * 100 / total).toInt() else 0
